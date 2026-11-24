@@ -9,15 +9,15 @@
   --silver-soft: #ebeef4;
   --silver-card: #eef1f6;
   --silver-line: #c7cfdc;
-  --silver-muted: #8b97ab;
+  --silver-muted: #64728a;
 
   --navy: #0f213b;
   --navy-deep: #091527;
   --navy-mid: #173054;
   --slate: #526177;
 
-  --gold: #a68036;
-  --gold-deep: #8c6927;
+  --gold: #89672a;
+  --gold-deep: #805d21;
   --gold-bright: #dfc078;
   --gold-tint: #f6efe0;
 
@@ -296,9 +296,9 @@ button {
 
 .hero-title {
   margin: 0 0 24px;
-  font-size: clamp(38px, 5.2vw, 72px);
+  font-size: clamp(34px, 4.6vw, 62px);
   font-weight: 900;
-  line-height: 1.13;
+  line-height: 1.24;
   letter-spacing: -0.055em;
   color: var(--navy);
 }
@@ -308,11 +308,15 @@ button {
 }
 
 .hero-desc {
-  margin: 0 0 30px;
+  margin: 0 0 16px;
   max-width: 640px;
   font-size: 16.5px;
   line-height: 1.85;
   color: var(--slate);
+}
+
+.hero-desc + .hero-desc {
+  margin-bottom: 28px;
 }
 
 .hero-desc strong {
@@ -401,7 +405,7 @@ button {
 
 .proof-label {
   margin-top: 4px;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
   color: var(--slate);
   line-height: 1.4;
@@ -409,6 +413,7 @@ button {
 
 /* Portrait Card */
 .portrait-card {
+  margin: 0;
   position: relative;
   background: var(--surface);
   border: 1px solid var(--silver-line);
@@ -1187,7 +1192,7 @@ button {
 .access-card {
   margin-top: 38px;
   display: grid;
-  grid-template-columns: 108px 1fr;
+  grid-template-columns: 108px minmax(0, 1fr);
   gap: 24px;
   align-items: center;
   padding: 20px 24px;
@@ -1245,6 +1250,7 @@ button {
 }
 
 .access-note {
+  overflow-wrap: anywhere;
   margin: 0;
   font-family: var(--font-meta);
   font-size: 12px;
@@ -1682,6 +1688,8 @@ details.editorial-details[open] summary::after {
 }
 
 .btn-silver-outline {
+  background: transparent;
+  cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -1748,6 +1756,100 @@ details.editorial-details[open] summary::after {
   color: var(--gold-deep);
 }
 
+.project-status {
+  align-self: start;
+  padding: 6px 12px;
+  border: 1px solid var(--silver-line);
+  border-radius: 999px;
+  font-size: 14px;
+  color: var(--slate);
+}
+
+.hero-grid > *,
+.lead-grid > *,
+.pipeline-trio > *,
+.access-card > *,
+.app-cards > * {
+  min-width: 0;
+}
+
+.pipeline-card code,
+.access-body {
+  overflow-wrap: anywhere;
+}
+
+.project-facts {
+  margin: 20px 0;
+  border-top: 1px solid var(--silver-line);
+}
+
+.project-facts > div {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  gap: 14px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--silver-line);
+  font-size: 14px;
+}
+
+.project-facts dt {
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.project-facts dd {
+  margin: 0;
+  color: var(--slate);
+}
+
+.project-note,
+.lead-copy p.project-note {
+  font-size: 14px;
+  color: var(--slate);
+  line-height: 1.7;
+}
+
+.project-links {
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid var(--silver-line);
+}
+
+.experience-projects {
+  margin: 28px 0;
+  align-items: start;
+}
+
+.experience-projects .screen-btn img {
+  max-height: 340px;
+  object-fit: contain;
+  background: #f6f8f7;
+}
+
+.operation-flow {
+  display: grid;
+  gap: 12px;
+  margin: 24px 0;
+  padding: 20px;
+  border-left: 3px solid var(--gold);
+  background: var(--paper);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.project-reflection {
+  padding-top: 20px;
+  border-top: 1px solid var(--silver-line);
+  font-size: 15px;
+  color: var(--slate);
+}
+
+.case-dark .project-reflection,
+.case-dark .project-reflection strong {
+  color: var(--navy);
+}
+
 /* ==========================================================================
    Image Lightbox Modal
    ========================================================================== */
@@ -1798,15 +1900,17 @@ details.editorial-details[open] summary::after {
   display: flex;
   align-items: center;
   gap: 12px;
+  flex-shrink: 0;
 }
 
 .lightbox-close {
-  padding: 6px 12px;
+  padding: 8px 14px;
+  min-height: 44px;
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.35);
   background: transparent;
   color: #ffffff;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   cursor: pointer;
 }
@@ -1870,6 +1974,26 @@ details.editorial-details[open] summary::after {
 }
 
 @media (max-width: 720px) {
+  .case-block {
+    padding: 22px 18px;
+  }
+  .case-block-head {
+    flex-direction: column;
+  }
+  .lightbox {
+    padding: 12px;
+  }
+  .lightbox-bar {
+    flex-wrap: wrap;
+    padding: 12px;
+  }
+  .lightbox-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+  .details-body {
+    overflow-x: auto;
+  }
   .workflow-grid,
   .hero-proof {
     grid-template-columns: 1fr;
@@ -1898,13 +2022,35 @@ details.editorial-details[open] summary::after {
     grid-template-columns: 1fr;
   }
   .access-card {
-    grid-template-columns: 88px 1fr;
+    grid-template-columns: 88px minmax(0, 1fr);
     gap: 16px;
     padding: 16px;
   }
   .qr-box {
     width: 88px;
     height: 88px;
+  }
+}
+
+@media (max-width: 480px) {
+  .access-card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .portrait-card {
+    max-width: min(240px, 100%);
+  }
+  .index-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .index-item {
+    border-right: none;
+    border-bottom: 1px solid var(--silver-line);
+  }
+  .index-item:nth-child(n + 3) {
+    border-bottom: 1px solid var(--silver-line);
+  }
+  .index-item:last-child {
+    border-bottom: none;
   }
 }
 
